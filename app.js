@@ -64,7 +64,7 @@ app.use(async(req, res, next) => {
     next();
 });
 
-// config public folder
+// config public folder ajhsgdas
 app.use(express.static(path.join(__dirname, '/public')))
 
 // Start Server

@@ -1,0 +1,31 @@
+<h2 class="ml-3 pl-3">Categories Of Fact</h2>
+<div class="container my-3 w-50 bg-light p-3">
+    <a href="/catefact/create" class="btn btn-outline-secondary mb-3">
+        <i class="fas fa-plus"></i> Create new One
+    </a>
+    <table class="table table-striped">
+        <thead>
+            <th>Name</th>
+            <th>Actions</th>
+        </thead>
+        <tbody>
+            {{#each list}}
+                <tr>
+                    <td>{{name}}</td>
+                    <td>
+                        <a class="btn btn-success" href="/catefact/edit/{{_id}}">
+                            <i class="fas fa-pencil-alt"></i>
+                        </a>
+                        <a class="btn btn-danger" href="/catefact/delete/{{_id}}"
+                            onclick="return confirm('Are you sure to delete this record ?')">
+                            <i class="far fa-trash-alt"></i>
+                        </a>
+                    </td>
+                </tr>
+            {{/each}}
+        </tbody>
+    </table>
+</div>
+    
+    
+

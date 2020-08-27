@@ -1,0 +1,80 @@
+<h2 class="ml-3 pl-3">FACT: {{cap cateName}}</h2>
+
+<div class="container my-3 bg-light p-3">
+    <a href="/fact/create" class="btn btn-outline-secondary mb-3">
+        <i class="fas fa-plus"></i> Create new One
+    </a>
+    <div class="my-2 d-flex" style="width: 20%;">
+        <h5 class="mr-2">Select</h5>
+        <select name="numberOfEntries" class="custom-select-sm" onchange="location = this.value;">
+            <option {{#ifvalue limit equals="2"}}
+                        selected
+                    {{/ifvalue}}
+            value="/fact/{{lower cateName}}?page=1&limit=2">2</option>
+            <option {{#ifvalue limit equals="4"}}
+                        selected
+                    {{/ifvalue}}
+            value="/fact/{{lower cateName}}?page=1&limit=4">4</option>
+            <option {{#ifvalue limit equals="6"}}
+                        selected
+                    {{/ifvalue}}
+            value="/fact/{{lower cateName}}?page=1&limit=6">6</option>
+        </select>
+        <h5 class="ml-2">entries</h5>
+    </div>
+    
+    <div class="card-columns">
+        {{#each list}}
+            <div class="card">
+                <div class="card-body">
+                    <img src="/upload/fact/{{img}}" >
+                </div>
+                <div class="card-footer">
+                    <a href="/fact/{{lower ../cateName}}/{{_id}}">{{title}}</a>
+                    <a class="btn btn-success" href="/fact/edit/{{_id}}">
+                        <i class="fas fa-pencil-alt"></i>
+                    </a>
+                    <a class="btn btn-danger" href="/fact/delete/{{_id}}">
+                        <i class="far fa-trash-alt"></i>
+                    </a>
+                </div>
+            </div>
+        {{/each}}
+    </div>
+
+    <ul class="pagination">
+        <li class="page-item {{#ifequal currentPage 1}}disabled{{/ifequal}}">
+            <a class="page-link" href="/fact/{{lower cateName}}?page=1&limit={{limit}}">
+                <i class="fas fa-angle-double-left"></i>
+            </a>
+        </li>
+        <li class="page-item {{#ifequal currentPage 1}}disabled{{/ifequal}}">
+            <a class="page-link" href="/fact/{{lower cateName}}?page={{dec currentPage}}&limit={{limit}}">
+                <i class="fas fa-angle-left"></i>
+            </a>
+        </li>
+
+        {{#each arrayNumberOfPage}}
+            <li class="page-item page-number {{#ifequal this ../currentPage}}active{{/ifequal}}" id="{{this}}">
+                <a class="page-link" href="/fact/{{lower ../cateName}}?page={{this}}&limit={{../limit}}">
+                   {{this}}
+                </a>
+            </li>
+        {{/each}}
+
+        <input type="hidden" value="{{lastPage}}" id="lastPage">
+
+        <li class="page-item {{#ifequal currentPage lastPage}}disabled{{/ifequal}}">
+            <a class="page-link" href="/fact/{{lower cateName}}?page={{inc currentPage}}&limit={{limit}}">
+                <i class="fas fa-angle-right"></i>
+            </a>
+        </li>
+        <li class="page-item {{#ifequal currentPage lastPage}}disabled{{/ifequal}}">
+            <a class="page-link" href="/fact/{{lower cateName}}?page={{lastPage}}&limit={{limit}}">
+                <i class="fas fa-angle-double-right"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+    
+

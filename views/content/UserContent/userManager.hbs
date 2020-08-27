@@ -1,0 +1,32 @@
+<div class="container my-3 w-50 bg-light p-3">
+    <h3>User Manager</h3>
+
+    <table class="table table-striped">
+        <thead>
+            <th>Name</th>
+            <th>Username</th>
+            <th>Gender</th>
+            <th>Age</th>
+            <th>Actions</th>
+        </thead>
+        <tbody>
+            {{#each list}}
+                <tr>
+                    <td>{{name}}</td>
+                    <td>{{username}}</td>
+                    <td>{{gender}}</td>
+                    <td>{{age}}</td>
+                    <td>
+                        <a class="btn btn-danger" href="/user/delete/{{_id}}"
+                            onclick="return confirm('Are you sure to delete this record ?')">
+                            <i class="far fa-trash-alt"></i>
+                        </a>
+                    </td>
+                </tr>
+            {{/each}}
+        </tbody>
+    </table>
+</div>
+    
+    
+

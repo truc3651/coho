@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h3 id="demo"></h3>
+
+    <script>
+        var arr1 = [1, 2, 3]
+        var arr2 = [2, 3, 1]
+
+        // Array.prototype.difference = (arr2) => {
+        //     return this.filter(x => !arr2.includes(x))
+        // }
+
+        var difference = arr2.filter(x => !arr1.includes(x))
+
+        document.getElementById('demo').innerHTML = difference
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,27 @@
+
+{{#if success_msg}} 
+    <div class="alert alert-success w-50" style="margin-left: 300px;">
+        <strong>{{success_msg}}!</strong>
+    </div>
+{{/if}}
+
+{{#if error_msg}} 
+    <div class="alert alert-warning w-50" style="margin-left: 300px;">
+        <strong>{{error_msg}}...</strong>
+    </div>
+{{/if}}
+
+{{#if errors}} 
+    {{#each errors}}
+        <div class="alert alert-warning w-50" style="margin-left: 300px;">
+            <strong>{{this.msg}}...</strong>
+        </div>
+    {{/each}}
+{{/if}}
+
+{{#if error}} 
+    <div class="alert alert-warning w-50" style="margin-left: 300px;">
+        <strong>Username or Password is invalid...</strong>
+    </div>
+{{/if}}
+
